@@ -1,5 +1,8 @@
 *.tfvars
 .terraform/
 .terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.*
+
 public
 .hugo_build.lock
