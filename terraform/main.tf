@@ -1,7 +1,8 @@
 locals {
-  domain       = "justinkim.app"
-  github_owner = "HJK-X"
-  github_repo  = "blog"
+  domain            = "justinkim.app"
+  github_owner      = "HJK-X"
+  github_repo       = "blog"
+  production_branch = "main"
 }
 
 data "cloudflare_zone" "main" {
@@ -13,7 +14,7 @@ data "cloudflare_zone" "main" {
 resource "cloudflare_pages_project" "landing_cfp" {
   account_id        = var.cloudflare_account_id
   name              = "landing"
-  production_branch = "main"
+  production_branch = local.production_branch
 
   build_config = {
     build_command   = "hugo"
@@ -24,7 +25,7 @@ resource "cloudflare_pages_project" "landing_cfp" {
   source = {
     config = {
       owner             = local.github_owner
-      production_branch = "main"
+      production_branch = local.production_branch
       repo_name         = local.github_repo
     }
     type = "github"
