@@ -3,7 +3,6 @@
 fmt:
 	terraform fmt -recursive
 
-
 deploy:
 	cd terraform && terraform apply
 
