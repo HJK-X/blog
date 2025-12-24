@@ -6,4 +6,3 @@ terraform.tfstate.*
 
 public
 .hugo_build.lock
-**/themes/*

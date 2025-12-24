@@ -8,3 +8,6 @@ deploy:
 
 landing:
 	cd landing && hugo server -D
+
+build:
+	git submodule update --init --recursive
