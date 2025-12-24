@@ -17,7 +17,7 @@ resource "cloudflare_pages_project" "landing_cfp" {
   production_branch = local.production_branch
 
   build_config = {
-    build_command   = "hugo"
+    build_command   = "make build"
     destination_dir = "public"
     root_dir        = "landing"
   }

@@ -34,10 +34,3 @@ menu:
       name: Blog
       url: /blog/
       weight: 3
-
-frontmatter:
-  defaults:
-    - where:
-        section: "blog"
-      values:
-        ShowReadingTime: true
