@@ -1,0 +1,39 @@
+{{- $.Scratch.Add "index" slice -}}
+
+{{- /* Add regular pages */ -}}
+{{- range site.RegularPages -}}
+    {{- if and (not .Params.searchHidden) (ne .Layout `archives`) (ne .Layout `search`) }}
+        {{- $.Scratch.Add "index" (dict 
+            "title"      .Title 
+            "content"    .Plain 
+            "permalink"  .Permalink 
+            "summary"    .Summary
+            "type"       "page"
+        ) -}}
+        
+        {{- /* Add tags for this page as separate entries */ -}}
+        {{- range .Params.tags }}
+            {{- $.Scratch.Add "index" (dict 
+                "title"     (printf "Tag: %s" .) 
+                "content"   "" 
+                "permalink" (printf "/tags/%s/" (urlize .)) 
+                "summary"   "" 
+                "type"      "tag"
+            ) -}}
+        {{- end }}
+
+        {{- /* Add categories for this page as separate entries */ -}}
+        {{- range .Params.categories }}
+            {{- $.Scratch.Add "index" (dict 
+                "title"     (printf "Category: %s" .) 
+                "content"   "" 
+                "permalink" (printf "/categories/%s/" (urlize .)) 
+                "summary"   "" 
+                "type"      "category"
+            ) -}}
+        {{- end }}
+    {{- end }}
+{{- end -}}
+
+{{- $.Scratch.Get "index" | jsonify -}}
+

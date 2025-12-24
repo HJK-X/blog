@@ -34,3 +34,13 @@ menu:
       name: Blog
       url: /blog/
       weight: 3
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 4
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
