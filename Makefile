@@ -3,7 +3,7 @@
 fmt:
 	terraform fmt -recursive
 
-deploy:
+apply:
 	cd terraform && terraform apply
 
 landing:
