@@ -17,8 +17,6 @@ params:
       url: "https://github.com/HJK-X"
     - name: linkedin
       url: "https://linkedin.com/in/justin-kim0"
-    - name: email
-      url: "mailto:juskim88@gmail.com"
 
 menu:
   main:
